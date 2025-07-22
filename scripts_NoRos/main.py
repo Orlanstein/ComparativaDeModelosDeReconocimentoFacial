@@ -127,8 +127,8 @@ class SequentialFaceDetectionBenchmark:
                 summary_data.append({
                     'Modelo': detector_name,
                     'FPS Promedio': df['fps'].mean(),
-                    'FPS Máximo': df['fps'].max(),
-                    'FPS Mínimo': df['fps'].min(),
+                    'FPS Maximo': df['fps'].max(),
+                    'FPS Minimo': df['fps'].min(),
                     'Detecciones Promedio': df['face_count'].mean(),
                     'CPU Promedio': df['cpu_usage'].mean(),
                     'RAM Promedio': df['mem_usage'].mean(),
@@ -143,14 +143,14 @@ class SequentialFaceDetectionBenchmark:
             # También guardar como markdown para mejor legibilidad
             md_path = os.path.join(self.run_dir, "RESULTADOS.md")
             with open(md_path, 'w') as f:
-                f.write("# Resultados de Comparación de Modelos de Detección Facial\n\n")
+                f.write("# Resultados de Comparacion de Modelos de Detección Facial\n\n")
                 f.write(f"Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-                f.write(f"Duración por prueba: {self.sample_time} segundos\n\n")
+                f.write(f"Duracion por prueba: {self.sample_time} segundos\n\n")
                 f.write("## Resumen Comparativo\n\n")
                 f.write(summary_df.to_markdown(index=False))
                 f.write("\n\n## Métricas Detalladas\n")
-                f.write("Los datos completos están disponibles en los archivos CSV dentro de la carpeta metrics/\n")
-                f.write("Gráficas comparativas disponibles en el mismo directorio.")
+                f.write("Los datos completos estan disponibles en los archivos CSV dentro de la carpeta metrics/\n")
+                f.write("Graficas comparativas disponibles en el mismo directorio.")
     
     def generate_comparison_plots(self):
         """Genera gráficos comparativos de las métricas"""
