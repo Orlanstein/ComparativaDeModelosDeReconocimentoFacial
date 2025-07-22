@@ -1,0 +1,12 @@
+=== RESUMEN COMPARATIVO ===
+
+Modelo		FPS Prom	FPS Max		FPS Min		Detect		CPU		Mem
+================================================================================
+CNN		1.02		1.2		0.7		1.0		96.93		74.44
+DLIB		5.67		5.9		2.0		0.95		60.08		70.58
+HAAR		14.78		17.7		4.9		0.89		79.94		70.41
+HOG		14.83		15.5		5.0		0.88		62.78		74.36
+MFN		14.81		17.5		4.9		0.8		79.51		70.5
+
+=== DATOS COMPLETOS ===
+Guardados en: /home/jetbot/catkin_ws/src/pony/results/raw_data_20250430_171623.csv
