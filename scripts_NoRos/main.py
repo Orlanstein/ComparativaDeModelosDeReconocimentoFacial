@@ -11,9 +11,10 @@ from face_haar import HaarFaceTracker
 from face_mtcnn import MTCNNFaceTracker
 
 class SequentialFaceDetectionBenchmark:
-    def __init__(self, sample_time=10, output_dir="resultados"):
+    def __init__(self, sample_time=10, output_dir="resultados", camera_index=0):
         self.sample_time = sample_time  # Tiempo de muestreo en segundos
         self.output_dir = output_dir
+        self.camera_index = camera_index  # Índice de la cámara a usar
         
         # Definir los detectores a evaluar en orden
         self.detectors = [
@@ -51,13 +52,13 @@ class SequentialFaceDetectionBenchmark:
     
     def run_detector_test(self, detector_name, detector_class):
         """Ejecuta una prueba para un solo detector"""
-        print(f"\nIniciando prueba para {detector_name}...")
+        print(f"\nIniciando prueba para {detector_name} (Cámara {self.camera_index})...")
         
-        # Inicializar detector
+        # Inicializar detector con el índice de cámara especificado
         if detector_name == "MTCNN":
-            detector = detector_class(min_confidence=0.85)
+            detector = detector_class(min_confidence=0.85, camera_index=self.camera_index)
         else:
-            detector = detector_class()
+            detector = detector_class(camera_index=self.camera_index)
         
         # Preparar estructura para métricas
         self.metrics_data[detector_name] = []
@@ -284,9 +285,12 @@ class SequentialFaceDetectionBenchmark:
 
 if __name__ == '__main__':
     # Configuración del benchmark
+    camera_index = 0  # Cambia este valor para usar otra cámara (0 es la predeterminada)
+    
     benchmark = SequentialFaceDetectionBenchmark(
         sample_time=30,  # 30 segundos por prueba
-        output_dir="resultados"
+        output_dir="resultados",
+        camera_index=camera_index
     )
     
     # Ejecutar comparación secuencial
