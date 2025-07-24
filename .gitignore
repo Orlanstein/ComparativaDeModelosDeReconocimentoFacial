@@ -1,3 +1,4 @@
 /.venv
 /.venv310
 /scripts_NoRos/resultados
+__pycache__
