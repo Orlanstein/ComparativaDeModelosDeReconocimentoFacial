@@ -285,7 +285,7 @@ class SequentialFaceDetectionBenchmark:
 
 if __name__ == '__main__':
     # Configuración del benchmark
-    camera_index = 2  # Cambia este valor para usar otra cámara (0 es la predeterminada)
+    camera_index = 0  # Cambia este valor para usar otra cámara (0 es la predeterminada)
     
     benchmark = SequentialFaceDetectionBenchmark(
         sample_time=30,  # 30 segundos por prueba
